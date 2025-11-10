@@ -1,10 +1,24 @@
 {
   "name": "parubok",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "private": true
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vlnnns/parubok2025.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vlnnns/parubok2025/issues"
+  },
+  "homepage": "https://github.com/vlnnns/parubok2025#readme",
+  "description": "",
+  "dependencies": {
+    "tailwindcss": "^4.1.17"
+  }
 }
