@@ -12,6 +12,7 @@
     <style>
         html{
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
         @keyframes fadeInBackground {
             from { opacity: 0; }
@@ -20,38 +21,27 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            /* 2. ТІЛЬКИ колір залишається на 'body'.
-               Це те, що користувач бачить, поки картинка вантажиться. */
             background-color: #7AB9FF;
         }
 
-        /*
-          3. Створюємо псевдо-елемент для фонової картинки
-        */
         body::before {
             content: "";
-            position: fixed; /* 'fixed' гарантує, що фон покриває весь екран, навіть при прокрутці */
-            inset: 0; /* (top, bottom, left, right = 0) */
-            z-index: -1; /* Розміщуємо фон позаду всього контенту */
+            position: fixed;
+            inset: 0;
+            z-index: -1;
 
-            /* 4. Це твій ДЕСКТОПНИЙ фон (за замовчуванням) */
             background-image: url("img/bg.svg");
             background-repeat: no-repeat;
             background-size: cover;
 
-            /* 5. Анімація появи */
-            opacity: 0; /* Початковий стан - прозорий */
-            animation: fadeInBackground 1.5s ease-in forwards; /* Застосовуємо анімацію 'fadeInBackground' */
+            opacity: 0;
+            animation: fadeInBackground 1.5s ease-in forwards;
         }
 
-        /*
-          6. ЗАВДАННЯ 1: Міняємо фон на мобільних
-        */
-        @media (max-width: 639.9px) { /* Будь-який екран, менший за 'sm' (640px) */
+        @media (max-width: 639.9px) {
             body::before {
-                /* Тут ми просто замінюємо картинку на мобільну.
-                   Анімація 'fadeInBackground' все ще буде застосовуватися. */
-                background-image: url("img/bg-mob.svg"); /* <--- Вкажи тут правильний шлях до mob-bg */
+
+                background-image: url("img/bg-mob.svg");
             }
         }
 
@@ -63,15 +53,11 @@
             to { transform: translateX(-50%); }
         }
 
-        /* ЗАСТОСУВАТИ АНІМАЦІЮ ТІЛЬКИ НА ЕКРАНАХ, МЕНШИХ ЗА 640px
-        */
         @media (max-width: 639.9px) {
             .marquee-track {
-                /* Тривалість анімації (20 секунд) */
                 animation: marquee 8s linear infinite;
             }
             .marquee-track:hover {
-                /* Пауза при наведенні */
                 animation-play-state: paused;
             }
         }
